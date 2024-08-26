@@ -15,8 +15,14 @@ in chunks for each process
 
 
 ## Training
-data loader num_workers may reduce epoch training time, but not in all cases ...
+Data loader num_workers may reduce epoch training time, but not in all cases ...
  - the overhead of managing multiple processes and inter-process communication can offset the benefits
  - num_workers higher than number of CPU cores may degrade performance
  - small datasets or datasets that do not require much pre-processing may not benefit much from a high num_workers
  - high batch sizes reduce frequency of data loading operations and may benefit less from num_workers
+
+
+## Code complexity
+Minimize innested loops (reducing O(n^2) to O(n) for example)
+  - Is it possible to move an inner loop outside the outer loop (running it a single time instead of repeating the loop at every iteration of the outer loop) ?
+  - Does a function call in a loop hide a loop ? Is it possible to substitute the function call ?
