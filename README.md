@@ -26,3 +26,4 @@ Data loader num_workers may reduce epoch training time, but not in all cases ...
 Minimize innested loops (reducing O(n^2) to O(n) for example)
   - Is it possible to move an inner loop outside the outer loop (running it a single time instead of repeating the loop at every iteration of the outer loop) ?
   - Does a function call in a loop hide a loop ? Is it possible to substitute the function call ?
+  - Avoid array operations inside loops as they are normally very costly (array creation, append, ...)
