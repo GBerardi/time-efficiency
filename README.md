@@ -13,6 +13,9 @@ in chunks for each process
                             chunksize)
 ```
 
+## Loops and repeated calls
+Reduce the operations inside a loop or a function that is called many times to the only needed ones.
+Everything that can be done in a different part of the code should be moved away.
 
 ## Training
 Data loader num_workers may reduce epoch training time, but not in all cases ...
