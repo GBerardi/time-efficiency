@@ -24,9 +24,13 @@ Data loader num_workers may reduce epoch training time, but not in all cases ...
  - small datasets or datasets that do not require much pre-processing may not benefit much from a high num_workers
  - high batch sizes reduce frequency of data loading operations and may benefit less from num_workers
 
-
 ## Code complexity
 Minimize innested loops (reducing O(n^2) to O(n) for example)
   - Is it possible to move an inner loop outside the outer loop (running it a single time instead of repeating the loop at every iteration of the outer loop) ?
   - Does a function call in a loop hide a loop ? Is it possible to substitute the function call ?
   - Avoid array operations inside loops as they are normally very costly (array creation, append, ...)
+
+## Multi processing
+Ones a loop is reduced to his minimum (low complexity and only the needed operations) you can:
+- log the time required
+- if the time is high you can consider to parallelize it (in python multiprocessing or multithreading)
